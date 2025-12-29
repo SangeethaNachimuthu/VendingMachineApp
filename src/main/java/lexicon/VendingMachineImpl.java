@@ -33,15 +33,14 @@ public class VendingMachineImpl implements IVendingMachine{
     }
 
     @Override
-    public String insertCoin(int insertedCoin) {
+    public void insertCoin(int insertedCoin) {
         for (Coin coin : Coin.values()) {
             if (coin.getCoinValue() == insertedCoin) {
                 balance += insertedCoin;
-                return "yes";
+                return;
             }
         }
         System.out.println("Invalid coin, Please insert correct coins.");
-        return "no";
     }
 
     @Override

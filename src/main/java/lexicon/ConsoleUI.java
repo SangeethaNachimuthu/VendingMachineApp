@@ -28,7 +28,7 @@ public class ConsoleUI {
                     break;
                 case "2":
                     System.out.print("Insert the coin: ");
-                    String continuePurchase = machine.insertCoin(scanner.nextInt());
+                    machine.insertCoin(scanner.nextInt());
                     System.out.println();
                     break;
                 case "3":

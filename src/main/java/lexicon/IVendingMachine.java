@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IVendingMachine {
 
-    void insertCoin(int coin);
+    String insertCoin(int coin);
 
     int getBalance();
 

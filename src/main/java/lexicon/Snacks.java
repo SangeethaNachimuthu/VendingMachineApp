@@ -1,8 +1,8 @@
 package lexicon;
 
-public class Snack extends Product {
+public class Snacks extends Product {
 
-    public Snack(int id, String name, int price, int quantity) {
+    public Snacks(int id, String name, int price, int quantity) {
         super(id, name, price, quantity);
     }
 

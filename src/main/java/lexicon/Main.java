@@ -1,5 +1,9 @@
 package lexicon;
 
+/*
+The entry point of the application.
+This class initializes the vending machine application.
+ */
 public class Main {
 
     void main() {

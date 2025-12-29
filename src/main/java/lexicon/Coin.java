@@ -1,5 +1,9 @@
 package lexicon;
 
+/*
+This enum class defines the acceptable coin denominations
+that can be inserted into the vending machine.
+ */
 public enum Coin {
 
     ONE(1),
@@ -9,7 +13,7 @@ public enum Coin {
     TWENTY(20),
     FIFTY(50);
 
-    private int coinValue;
+    private final int coinValue;
 
     Coin(int coinValue) {
         this.coinValue = coinValue;

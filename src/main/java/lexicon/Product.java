@@ -1,5 +1,9 @@
 package lexicon;
 
+/*
+This abstract class contains the Product details like
+id, name, price and quantity.
+ */
 public abstract class Product {
 
     private int id;

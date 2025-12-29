@@ -2,6 +2,9 @@ package lexicon;
 
 import java.util.List;
 
+/*
+This is the interface class and implemented in VendingMachineImpl class.
+ */
 public interface IVendingMachine {
 
     String insertCoin(int coin);

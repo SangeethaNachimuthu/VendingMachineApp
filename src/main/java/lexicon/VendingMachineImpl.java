@@ -3,6 +3,9 @@ package lexicon;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+This class implements the IVendingMachine interface.
+ */
 public class VendingMachineImpl implements IVendingMachine{
 
     private List<Product> productList = new ArrayList<>();
@@ -12,6 +15,9 @@ public class VendingMachineImpl implements IVendingMachine{
         addProducts();
     }
 
+    /*
+    Added products in the list.
+     */
     public void addProducts() {
         productList.add(new Snacks(101, "Chips", 30, 15));
         productList.add(new Snacks(102, "Roasted Peanut", 25, 10));
@@ -44,6 +50,11 @@ public class VendingMachineImpl implements IVendingMachine{
     }
 
     @Override
+    /*
+    Purchases a product by its ID.
+    This method checks whether the product is available in stock and
+    whether the user has sufficient balance before completing the purchase.
+     */
     public Product purchaseProduct(int productId) {
         if (!productList.isEmpty()) {
             for (Product p : productList) {
@@ -63,6 +74,9 @@ public class VendingMachineImpl implements IVendingMachine{
     }
 
     @Override
+    /*
+    This method calculates the remaining balance after the purchase.
+     */
     public int returnChange() {
         int remainingBalance = balance;
         balance = 0;

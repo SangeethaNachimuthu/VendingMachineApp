@@ -21,7 +21,7 @@ public class VendingMachineImpl implements IVendingMachine{
     public void addProducts() {
         productList.add(new Snacks(101, "Chips", 30, 15));
         productList.add(new Snacks(102, "Roasted Peanut", 25, 10));
-        productList.add(new Snacks(103, "Cheese Balls", 55, 12));
+        productList.add(new Snacks(103, "Cheese Balls", 45, 12));
         productList.add(new Beverage(201, "Pepsi", 12, 10));
         productList.add(new Beverage(202, "Fanta", 15, 10));
         productList.add(new Beverage(203, "Sprite", 13, 10));
@@ -29,7 +29,7 @@ public class VendingMachineImpl implements IVendingMachine{
         productList.add(new Fruit(301, "Apple", 10, 10));
         productList.add(new Fruit(302, "Pear", 15, 10));
         productList.add(new Fruit(303, "Banana", 9, 10));
-        productList.add(new Fruit(304, "Orange", 5, 10));
+        productList.add(new Fruit(304, "Orange", 5, 0));
     }
 
     @Override
@@ -57,13 +57,18 @@ public class VendingMachineImpl implements IVendingMachine{
     public Product purchaseProduct(int productId) {
         if (!productList.isEmpty()) {
             for (Product p : productList) {
-                if (p.getId() == productId && p.getQuantity() > 0) {
-                    if (balance >= p.getPrice()) {
-                        balance -= p.getPrice();
-                        p.setQuantity(p.getQuantity()-1);
-                        return p;
+                if (p.getId() == productId) {
+                    if (p.getQuantity() > 0){
+                        if (balance >= p.getPrice()) {
+                            balance -= p.getPrice();
+                            p.setQuantity(p.getQuantity() - 1);
+                            return p;
+                        } else {
+                            System.out.println("Insufficient balance to purchase the product!");
+                            return null;
+                        }
                     } else {
-                        System.out.println("Insufficient balance to purchase the product!");
+                        System.out.println("Product is out of stock!");
                         return null;
                     }
                 }

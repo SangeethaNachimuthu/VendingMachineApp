@@ -2,6 +2,8 @@ package lexicon;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class VendingMachineImplTest {
@@ -51,6 +53,45 @@ public class VendingMachineImplTest {
 
         assertNull(product);
         assertEquals(10, machine.getBalance());
-        assertEquals(initialQuantity, productBefore.getQuantity());
+        assertEquals(10, productBefore.getQuantity());
+    }
+
+    @Test
+    void validatePurchaseFailsWhenProductOutOfStock() {
+
+        machine.insertCoin(50);
+
+        Product productBefore = machine.getProducts()
+                .stream()
+                .filter(p -> p.getId() == 304)
+                .findFirst()
+                .orElseThrow();
+
+        int initialQuantity = productBefore.getQuantity();
+
+        Product product = machine.purchaseProduct(304);
+
+        assertNull(product);
+        assertEquals(50, machine.getBalance());
+        assertEquals(0, productBefore.getQuantity());
+    }
+
+    @Test
+    void validateReturnChangeAndResetBalance() {
+
+        machine.insertCoin(50);
+
+        Product product = machine.purchaseProduct(103);
+
+        assertNotNull(product);
+        assertEquals(5, machine.returnChange());
+        assertEquals(0, machine.getBalance());
+    }
+
+    @Test
+    void validateGetProductsReturnsAllItems() {
+
+        int size = machine.getProducts().size();
+        assertEquals(11, size);
     }
 }

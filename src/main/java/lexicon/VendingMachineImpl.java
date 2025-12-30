@@ -64,6 +64,7 @@ public class VendingMachineImpl implements IVendingMachine{
                         return p;
                     } else {
                         System.out.println("Insufficient balance to purchase the product!");
+                        return null;
                     }
                 }
             }

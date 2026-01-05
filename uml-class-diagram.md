@@ -69,6 +69,11 @@ classDiagram
     class Main {
         + main(): void
     }
+    
+    class Candy {
+        + Candy(id : int, name : String, price : int, quantity : int)
+        + getDescription(): String
+    }
 
     Product <|-- Snacks
     Product <|-- Beverage
@@ -78,4 +83,5 @@ classDiagram
     VendingMachineImpl --> Coin
     ConsoleUI ..> IVendingMachine
     Main --> ConsoleUI : starts
+    Product <|-- Candy
 ```

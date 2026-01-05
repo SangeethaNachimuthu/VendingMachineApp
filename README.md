@@ -31,3 +31,5 @@ A UML class diagram is created to represent the design of the application.
 ## Unit Testing
 JUnit test cases are added to validate the functionality of the vending machine.
 
+## Additional Features
+1. Added a new product type (Candy) to the vending machine.

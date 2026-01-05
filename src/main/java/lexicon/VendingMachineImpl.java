@@ -30,6 +30,9 @@ public class VendingMachineImpl implements IVendingMachine{
         productList.add(new Fruit(302, "Pear", 15, 10));
         productList.add(new Fruit(303, "Banana", 9, 10));
         productList.add(new Fruit(304, "Orange", 5, 0));
+        productList.add(new Candy(401, "Dark Chocolate", 10, 20));
+        productList.add(new Candy(402, "Milk Chocolate", 10, 20));
+        productList.add(new Candy(403, "Jelly", 15, 20));
     }
 
     @Override
